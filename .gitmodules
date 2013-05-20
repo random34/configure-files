@@ -1,6 +1,6 @@
 [submodule "nerdtree"]
-	path = nerdtree
+	path = vimfiles/vimfiles/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
 [submodule "vim-markdown"]
-	path = vim-markdown
+	path = vimfiles/vimfiles/bundle/vim-markdown
 	url = git://github.com/plasticboy/vim-markdown.git
