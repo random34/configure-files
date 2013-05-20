@@ -41,7 +41,7 @@ source $VIMRUNTIME/menu.vim
 set guifont=Courier\ New:h12:cANSI
 
 "set color theme 
-colorscheme mustang
+colorscheme eclipse
 
 set helplang=cn
 set iskeyword+=
