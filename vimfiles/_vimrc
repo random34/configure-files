@@ -145,6 +145,8 @@ map <F7> :NERDTreeToggle<CR>
 "change directory to current file
 map <leader>r :NERDTreeFind<CR>
 
+noremap <F5> :!start "C:\Documents and Settings\laiq\Local Settings\Application Data\Google\Chrome\Application\chrome.exe" "%:p" <CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

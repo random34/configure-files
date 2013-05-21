@@ -82,7 +82,7 @@ LongRestTimer:
 PomodoroTimer:
     LeftTime:= LeftTime - 1
     ;MsgBox, Debug LeftTime=%LeftTime% 
-    if (LeftTime < 1){
+    if (LeftTime < 0){
         MsgBox, Timer OUT! 
         SetTimer, PomodoroTimer, Off
     }
