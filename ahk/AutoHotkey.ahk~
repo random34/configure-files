@@ -13,23 +13,16 @@
 ; and it launches a new Notepad window (or activates an existing one).  To
 ; try out these hotkeys, run AutoHotkey again, which will load this file.
 
-^!n::
-IfWinExist Untitled - Notepad
-	WinActivate
-else
-	Run Notepad
-return
+#Include C:\local.ahk
 
-#v::Run C:\Program Files\Vim\vim73\gvim.exe
+#v::Run %A_ProgramFiles%\Vim\vim73\gvim.exe
 #t::Run C:\WINDOWS\system32\taskmgr.exe
 #c::Run C:\cygwin\bin\mintty.exe -i /Cygwin-Terminal.ico -
-#p::Run C:\Documents and Settings\laiq\My Documents\Downloads\putty.exe
-#j::Run C:\Program Files\JabRef\JabRef.exe
-#f::Run C:\Program Files\FreeCommander\FreeCommander.exe
-#x::Run C:\Program Files\XMind\xmind.exe
-#m::Run C:\Program Files\TTPlayer\TTPlayer.exe
+#j::Run %A_ProgramFiles%\JabRef\JabRef.exe
+#x::Run %A_ProgramFiles%\XMind\xmind.exe
+#m::Run %A_ProgramFiles%\TTPlayer\TTPlayer.exe
 #a::Gosub, ReloadScript
-#s::Gosub,Pomodoro
+#s::Gosub, Pomodoro
 #e::Gosub, StopTimer
 #3::Gosub, TeaTimer
 #5::Gosub, RestTimer
@@ -82,7 +75,7 @@ LongRestTimer:
 PomodoroTimer:
     LeftTime:= LeftTime - 1
     ;MsgBox, Debug LeftTime=%LeftTime% 
-    if (LeftTime < 0){
+    if (LeftTime < 1){
         MsgBox, Timer OUT! 
         SetTimer, PomodoroTimer, Off
     }
