@@ -4,3 +4,6 @@
 [submodule "vim-markdown"]
 	path = vimfiles/vimfiles/bundle/vim-markdown
 	url = git://github.com/plasticboy/vim-markdown.git
+[submodule "vim-airline"]
+	path = vimfiles/vimfiles/bundle/vim-airline
+	url = git://github.com/bling/vim-airline.git

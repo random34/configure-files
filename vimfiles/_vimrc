@@ -5,6 +5,9 @@ execute pathogen#infect()
 "vim mark down
 let g:vim_markdown_folding_disabled=1 " stop folding markdown
 
+"vim-airline
+set laststatus=2
+
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
