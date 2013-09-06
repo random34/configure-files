@@ -1,11 +1,9 @@
 " PLUGINS
-
 " pathogen
 execute pathogen#infect()
 
 "vim mark down
-let g:vim_markdown_folding_disabled=1 " stop folding
-
+let g:vim_markdown_folding_disabled=1 " stop folding markdown
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
@@ -97,6 +95,11 @@ set smartcase
 set noerrorbells
 set novisualbell
 
+" Turn off *.*~ auto backup files
+set nobackup
+set nowritebackup
+
+
 nnoremap k gk
 nnoremap j gj
 nnoremap  <Up> gk
@@ -138,13 +141,14 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+map <leader>tm :tabmove<cr>
 
 " NERDTree
 map <F7> :NERDTreeToggle<CR>
 "change directory to current file
 map <leader>r :NERDTreeFind<CR>
 
+" Review current file in chrome
 noremap <F5> :!start "C:\Documents and Settings\laiq\Local Settings\Application Data\Google\Chrome\Application\chrome.exe" "%:p" <CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

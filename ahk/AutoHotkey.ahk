@@ -1,27 +1,15 @@
-; IMPORTANT INFO ABOUT GETTING STARTED: Lines that start with a
-; semicolon, such as this one, are comments.  They are not executed.
-
-; This script has a special filename and path because it is automatically
-; launched when you run the program directly.  Also, any text file whose
-; name ends in .ahk is associated with the program, which means that it
-; can be launched simply by double-clicking it.  You can have as many .ahk
-; files as you want, located in any folder.  You can also run more than
-; one .ahk file simultaneously and each will get its own tray icon.
-
-; SAMPLE HOTKEYS: Below are two sample hotkeys.  The first is Win+Z and it
-; launches a web site in the default browser.  The second is Control+Alt+N
-; and it launches a new Notepad window (or activates an existing one).  To
-; try out these hotkeys, run AutoHotkey again, which will load this file.
-
+; Include the location specific commands.
 #Include C:\local.ahk
 
-#v::Run %A_ProgramFiles%\Vim\vim73\gvim.exe
+; Shortcuts for opening applications
+#v::Run %ProgramFilesPath%\Vim\vim73\gvim.exe
 #t::Run C:\WINDOWS\system32\taskmgr.exe
 #c::Run C:\cygwin\bin\mintty.exe -i /Cygwin-Terminal.ico -
-#j::Run %A_ProgramFiles%\JabRef\JabRef.exe
-#x::Run %A_ProgramFiles%\XMind\xmind.exe
-#m::Run %A_ProgramFiles%\TTPlayer\TTPlayer.exe
-#a::Gosub, ReloadScript
+#j::Run %ProgramFilesPath%\JabRef\JabRef.exe
+#x::Run %ProgramFilesPath%\XMind\xmind.exe
+#m::Run %ProgramFilesPath%\TTPlayer\TTPlayer.exe
+
+; Shortcuts for the timer of pomodoro methods
 #s::Gosub, Pomodoro
 #e::Gosub, StopTimer
 #3::Gosub, TeaTimer
@@ -29,9 +17,20 @@
 #1::Gosub, WorkTimer
 #2::Gosub, LongRestTimer
 
+; others
+^!r::Gosub, ReloadScript
+^!f::Gosub, FetchConfigure
+^!u::Gosub, UploadConfigure
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; sub programs
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ReloadScript:
     Reload
-    Sleep 1000 ; If successful, the reload will close this instance during the Sleep, so the line below will never be reached.
+    ; If successful, the reload will close this instance during the Sleep, so
+    ; the line below will never be reached.
+    Sleep 1000 
     MsgBox, The script could not be reloaded. 
     return
 
@@ -82,9 +81,9 @@ PomodoroTimer:
     return
 
 StopTimer:
+    MsgBox, Timer cancelled. Left time = %LeftTime% minutes. 
     LeftTime := -1
     SetTimer, PomodoroTimer, Off
-    MsgBox, Timer cancelled. 
     return
 
 TeaTimer:
@@ -93,9 +92,14 @@ TeaTimer:
     MsgBox, Tea ready!
     return
 
-; Note: From now on whenever you run AutoHotkey directly, this script
-; will be loaded.  So feel free to customize it to suit your needs.
+FetchConfigure:
+    FileCopyDir %DropboxConfigure%\vimfiles\, %Home%, 1
+    MsgBox, Configuration files fetched from dropbox
+    return
 
-; Please read the QUICK-START TUTORIAL near the top of the help file.
-; It explains how to perform common automation tasks such as sending
-; keystrokes and mouse clicks.  It also explains more about hotkeys.
+UploadConfigure:
+    FileCopyDir %Home%\vimfiles\, %DropboxConfigure%\vimfiles\vimfiles, 1
+    FileCopy %Home%\_vimrc, %DropboxConfigure%\vimfiles\, 1
+    MsgBox, Configuration files uploaded to dropbox. 
+    return
+    
