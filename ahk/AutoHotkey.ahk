@@ -99,6 +99,7 @@ FetchConfigure:
 
 UploadConfigure:
     FileCopyDir %Home%\vimfiles\, %DropboxConfigure%\vimfiles\vimfiles, 1
+    ;FileCopyDir %Home%\vimfiles\, c:\temp\vimfiles\vimfiles, 1
     FileCopy %Home%\_vimrc, %DropboxConfigure%\vimfiles\, 1
     MsgBox, Configuration files uploaded to dropbox. 
     return

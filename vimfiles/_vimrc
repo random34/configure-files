@@ -8,6 +8,9 @@ let g:vim_markdown_folding_disabled=1 " stop folding markdown
 "vim-airline
 set laststatus=2
 
+"ctrlp
+set runtimepath^=~/vimfiles/bundle/ctrlp
+
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim

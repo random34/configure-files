@@ -7,3 +7,6 @@
 [submodule "vim-airline"]
 	path = vimfiles/vimfiles/bundle/vim-airline
 	url = git://github.com/bling/vim-airline.git
+[submodule "ctrlp.vim"]
+	path = vimfiles/vimfiles/bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git
