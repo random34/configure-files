@@ -10,6 +10,9 @@ set laststatus=2
 
 "ctrlp
 set runtimepath^=~/vimfiles/bundle/ctrlp
+"csv: see help ft-csv for more information
+
+" GENERAL SETTINGS
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim

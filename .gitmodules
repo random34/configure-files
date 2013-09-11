@@ -10,3 +10,6 @@
 [submodule "ctrlp.vim"]
 	path = vimfiles/vimfiles/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
+[submodule "csv.vim"]
+	path = vimfiles/vimfiles/bundle/csv
+	url = git://github.com/chrisbra/csv.vim.git 
