@@ -7,13 +7,20 @@ let g:vim_markdown_folding_disabled=1 " stop folding markdown
 
 "vim-airline
 set laststatus=2
+let g:airline#extensions#whitespace#enabled = 0
 
 "ctrlp
 set runtimepath^=~/vimfiles/bundle/ctrlp
 "csv: see help ft-csv for more information
 
-" GENERAL SETTINGS
+"LOOK AND FEEL
+"set guifont=NSimSun:h12:cANSI
+set guifont=DeJaVu\ Sans\ Mono:h12:cANSI
 
+"set color theme 
+colorscheme molokai
+
+" GENERAL SETTINGS
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
@@ -43,13 +50,6 @@ set fencs=utf-8,gbk,ucs-bom,gb18030,gb2312,cp936
 "set langmenu=zh_CN.utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-"set font
-"set guifont=NSimSun:h12:cANSI
-set guifont=Courier\ New:h12:cANSI
-
-"set color theme 
-colorscheme mustang
-
 set helplang=cn
 set iskeyword+=
 
@@ -150,7 +150,8 @@ vnoremap <silent> # :call VisualSelection('b')<CR>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove<cr>
+" Move the current split as a new tab
+map <leader>tm <C-W>T
 
 " NERDTree
 map <F7> :NERDTreeToggle<CR>
