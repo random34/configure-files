@@ -17,5 +17,5 @@
 	path = vimfiles/vimfiles/bundle/molokai
 	url = git://github.com/tomasr/molokai
 [submodule "vim-surround"]
-	path = vim-surround
+	path = vimfiles/vimfiles/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
