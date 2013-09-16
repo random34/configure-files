@@ -11,6 +11,7 @@ let g:airline#extensions#whitespace#enabled = 0
 
 "ctrlp
 set runtimepath^=~/vimfiles/bundle/ctrlp
+
 "csv: see help ft-csv for more information
 
 "LOOK AND FEEL
@@ -78,7 +79,6 @@ function MyDiff()
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-"设置F2为开关拼写检查
 nmap <F2> :set spell!<CR>
 "configuration for TOhtml
 let html_use_css = 1 " Use stylesheet instead of inline style
