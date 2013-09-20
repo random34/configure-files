@@ -15,8 +15,8 @@ set runtimepath^=~/vimfiles/bundle/ctrlp
 "csv: see help ft-csv for more information
 
 "LOOK AND FEEL
-"set guifont=NSimSun:h12:cANSI
 set guifont=DeJaVu\ Sans\ Mono:h12:cANSI
+set guifontwide=YouYuan:h12
 
 "set color theme 
 colorscheme molokai
