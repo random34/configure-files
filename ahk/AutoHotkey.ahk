@@ -1,6 +1,7 @@
 ; Include the location specific commands.
 #Include C:\local.ahk
 
+; ^ is ctrl, ! is alt, # is win
 ; Shortcuts for opening applications
 #v::Run %ProgramFilesPath%\Vim\vim73\gvim.exe
 #t::Run C:\WINDOWS\system32\taskmgr.exe
@@ -17,10 +18,13 @@
 #1::Gosub, WorkTimer
 #2::Gosub, LongRestTimer
 
-; others
+; Manage configuration files
 ^!r::Gosub, ReloadScript
 ^!f::Gosub, FetchConfigure
 ^!u::Gosub, UploadConfigure
+
+; copy current content and google it.
+^#c::Gosub, CopyAndSearch
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; sub programs
@@ -104,3 +108,8 @@ UploadConfigure:
     MsgBox, Configuration files uploaded to dropbox. 
     return
     
+CopyAndSearch:
+    Send, ^c
+    Sleep 50
+    Run, http://www.google.com/search?q=%clipboard%
+Return
