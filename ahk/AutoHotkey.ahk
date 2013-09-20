@@ -9,6 +9,7 @@
 #j::Run %ProgramFilesPath%\JabRef\JabRef.exe
 #x::Run %ProgramFilesPath%\XMind\xmind.exe
 #m::Run %ProgramFilesPath%\TTPlayer\TTPlayer.exe
+#F12::Send, {Volume_Mute}
 
 ; Shortcuts for the timer of pomodoro methods
 #s::Gosub, Pomodoro
@@ -28,6 +29,7 @@
 
 ; text expansions
 ::;pd::{U+00A3}
+::;euro::{U+20AC}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; sub programs
