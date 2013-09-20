@@ -26,6 +26,9 @@
 ; copy current content and google it.
 ^#c::Gosub, CopyAndSearch
 
+; text expansions
+::;pd::{U+00A3}
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; sub programs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
