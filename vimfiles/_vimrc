@@ -152,6 +152,8 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 " Move the current split as a new tab
 map <leader>tm <C-W>T
+map <leader>w :wa!<cr>
+map <leader>q :q!<cr>
 
 " NERDTree
 map <F7> :NERDTreeToggle<CR>
