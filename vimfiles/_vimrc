@@ -15,8 +15,12 @@ set runtimepath^=~/vimfiles/bundle/ctrlp
 "csv: see help ft-csv for more information
 
 "LOOK AND FEEL
-set guifont=DeJaVu\ Sans\ Mono:h12:cANSI
-set guifontwide=YouYuan:h12
+if has("win32")
+    set guifont=DeJaVu\ Sans\ Mono:h12:cANSI
+else
+    set guifont=DeJaVu\ Sans\ Mono\ 12
+endif
+"set guifontwide=YouYuan:h12
 
 "set color theme 
 colorscheme molokai
@@ -134,9 +138,6 @@ map <C-I> c*<C-R>"*<ESC>
 " like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
-
-" Fast saving
-nmap <leader>w :w!<cr>
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
