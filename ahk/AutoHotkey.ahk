@@ -30,6 +30,8 @@
 ; text expansions
 ::;pd::{U+00A3}
 ::;euro::{U+20AC}
+::;sysout::System.out.println();{Left}{Left}
+::;main::public static void main(String [] args){{}{}}{Left}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; sub programs
