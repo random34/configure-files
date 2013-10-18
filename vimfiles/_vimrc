@@ -14,17 +14,9 @@ set runtimepath^=~/vimfiles/bundle/ctrlp
 
 "csv: see help ft-csv for more information
 
-"Platform specific settings
-if has("win32")
-    set guifont=DeJaVu\ Sans\ Mono:h12:cANSI
-    set guifontwide=YouYuan:h12
-    source $VIMRUNTIME/mswin.vim
-    behave mswin
-    set fileencoding=chinese
-else
-    set guifont=DeJaVu\ Sans\ Mono\ 12
-    set fileencoding=utf-8
-endif
+"LOOK AND FEEL
+set guifont=DeJaVu\ Sans\ Mono:h12:cANSI
+set guifontwide=YouYuan:h12
 
 "set color theme 
 colorscheme molokai
@@ -32,6 +24,8 @@ colorscheme molokai
 " GENERAL SETTINGS
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
 set nu!
 set wrap
   if !exists("syntax_on")
@@ -42,41 +36,24 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set cindent
+set autochdir
 
 set encoding=utf-8
+set fileencodings=utf-8,chinese,latin-1
+if has("win32")
+    set fileencoding=chinese
+else
+    set fileencoding=utf-8
+endif
+
+"language messages zh_CN.utf-8
 
 set fencs=utf-8,gbk,ucs-bom,gb18030,gb2312,cp936
 "set langmenu=zh_CN.utf-8
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-
+set helplang=cn
 set iskeyword+=
-
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
-
 nmap <F2> :set spell!<CR>
 "configuration for TOhtml
 let html_use_css = 1 " Use stylesheet instead of inline style
@@ -106,7 +83,6 @@ set novisualbell
 set nobackup
 set nowritebackup
 
-
 nnoremap k gk
 nnoremap j gj
 nnoremap  <Up> gk
@@ -133,6 +109,17 @@ map <C-I> c*<C-R>"*<ESC>
 let mapleader = ","
 let g:mapleader = ","
 
+" Fast saving
+nmap <leader>w :w!<cr>
+
+"Compile Java
+autocmd Filetype java set makeprg=javac\ %
+set errorformat=%A%f:%l:\ %m,%-Z%p^,%-C%.%#
+map <F9> :make<Return>:copen<Return>
+map <F10> :cprevious<Return>
+map <F11> :cnext<Return>
+map <F12> :cclose<Return>
+
 """"""""""""""""""""""""""""""
 " => Visual mode related
 """"""""""""""""""""""""""""""
@@ -147,18 +134,11 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 " Move the current split as a new tab
 map <leader>tm <C-W>T
-map <leader>w :wa!<cr>
-map <leader>q :q!<cr>
 
 " NERDTree
 map <F7> :NERDTreeToggle<CR>
 "change directory to current file
 map <leader>r :NERDTreeFind<CR>
-
-"copy and paste
-map <leader>p "+p
-map <leader>P "+P
-map <leader>y "+y
 
 " Review current file in chrome
 noremap <F5> :!start "C:\Documents and Settings\laiq\Local Settings\Application Data\Google\Chrome\Application\chrome.exe" "%:p" <CR>
@@ -191,5 +171,30 @@ function! VisualSelection(direction) range
 
     let @/ = l:pattern
     let @" = l:saved_reg
+endfunction
+
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
