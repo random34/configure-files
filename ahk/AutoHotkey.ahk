@@ -32,6 +32,7 @@
 ::;euro::{U+20AC}
 ::;sysout::System.out.println();{Left}{Left}
 ::;main::public static void main(String [] args){{}{}}{Left}
+^!g::Gosub, InsertGetterAndSetter
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; sub programs
@@ -120,3 +121,12 @@ CopyAndSearch:
     Sleep 50
     Run, http://www.google.com/search?q=%clipboard%
 Return
+
+InsertGetterAndSetter:
+    InputBox, Type, input Type, private _Type_ _name_: firstly input type
+    InputBox, VarName, input variable name, private _Type_ _name_: input VarName
+    StringUpper UpperVarName, VarName, T
+    Sleep 20
+    send private %Type% _%VarName%;{Enter}{Enter}public %Type% get%UpperVarName%(){{}{Enter}return _%VarName%;{Enter}{}}{Enter}{Enter}public void set%UpperVarName%(%Type% %VarName%){{}{Enter}_%VarName% = %VarName%{Enter}{}}
+return
+
