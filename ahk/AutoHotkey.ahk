@@ -127,6 +127,6 @@ InsertGetterAndSetter:
     InputBox, VarName, input variable name, private _Type_ _name_: input VarName
     StringUpper UpperVarName, VarName, T
     Sleep 20
-    send private %Type% _%VarName%;{Enter}{Enter}public %Type% get%UpperVarName%(){{}{Enter}return _%VarName%;{Enter}{}}{Enter}{Enter}public void set%UpperVarName%(%Type% %VarName%){{}{Enter}_%VarName% = %VarName%{Enter}{}}
+    send private %Type% m%UpperVarName%;{Enter}{Enter}public %Type% get%UpperVarName%(){{}{Enter}return m%UpperVarName%;{Enter}{}}{Enter}{Enter}public void set%UpperVarName%(%Type% %VarName%){{}{Enter}m%UpperVarName% = %VarName%{Enter}{}}
 return
 
