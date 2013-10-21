@@ -33,7 +33,7 @@
 ::;sysout::System.out.println();{Left}{Left}
 ::;main::public static void main(String [] args){{}{}}{Left}
 ^!g::Gosub, InsertGetterAndSetter
-
+    
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; sub programs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

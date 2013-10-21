@@ -1,6 +1,8 @@
 " PLUGINS
 " pathogen
 execute pathogen#infect()
+" load help tags of pathogen
+map <leader>ph :call pathogen#helptags()<cr>
 
 "vim mark down
 let g:vim_markdown_folding_disabled=1 " stop folding markdown
