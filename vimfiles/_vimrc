@@ -16,10 +16,6 @@ set runtimepath^=~/vimfiles/bundle/ctrlp
 
 "csv: see help ft-csv for more information
 
-"LOOK AND FEEL
-set guifont=DeJaVu\ Sans\ Mono:h12:cANSI
-set guifontwide=YouYuan:h12
-
 "set color theme 
 colorscheme molokai
 
@@ -44,7 +40,10 @@ set encoding=utf-8
 set fileencodings=utf-8,chinese,latin-1
 if has("win32")
     set fileencoding=chinese
+    set guifont=DeJaVu\ Sans\ Mono:h12:cANSI
+    set guifontwide=YouYuan:h12
 else
+    set guifont=DeJaVu\ Sans\ Mono\ 12
     set fileencoding=utf-8
 endif
 
