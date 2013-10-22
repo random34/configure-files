@@ -35,6 +35,7 @@ set shiftwidth=4
 set expandtab
 set cindent
 set autochdir
+set guioptions-=T  "remove toolbar
 
 set encoding=utf-8
 set fileencodings=utf-8,chinese,latin-1
