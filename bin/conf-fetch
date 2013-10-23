@@ -1,5 +1,7 @@
 #!/bin/bash
-cp ~/configure-files/vimfiles/_vimrc ~/.vimrc
+echo "fetch vim files"
+cp -v ~/configure-files/vimfiles/_vimrc ~/.vimrc
 rm -rf ~/.vim/*
 cp -r ~/configure-files/vimfiles/vimfiles/* ~/.vim/
-echo "Fetched configuration files from git repo"
+echo "fetch .Xdefaults"
+cp ~/configure-files/dotfiles/.Xdefaults ~/
