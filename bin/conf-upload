@@ -1,0 +1,6 @@
+#!/bin/bash
+cp ~/.vimrc ~/configure-files/vimfiles/_vimrc
+rm -rf ~/configure-files/vimfiles/vimfiles/*
+cp -r ~/.vim/* ~/configure-files/vimfiles/vimfiles/
+echo "uploaded configuration files to git repo"
+

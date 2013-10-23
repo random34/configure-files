@@ -1,0 +1,5 @@
+#!/bin/bash
+cp ~/configure-files/vimfiles/_vimrc ~/.vimrc
+rm -rf ~/.vim/*
+cp -r ~/configure-files/vimfiles/vimfiles/* ~/.vim/
+echo "Fetched configuration files from git repo"
