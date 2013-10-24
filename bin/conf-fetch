@@ -5,3 +5,5 @@ rm -rf ~/.vim/*
 cp -r ~/configure-files/vimfiles/vimfiles/* ~/.vim/
 echo "fetch .Xdefaults"
 cp ~/configure-files/dotfiles/.Xdefaults ~/
+echo "fetch .bashrc"
+cp ~/configure-files/dotfiles/.bashrc ~/

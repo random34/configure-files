@@ -200,7 +200,6 @@
 if [ -f "${HOME}/.bash_local" ] ; then
   source "${HOME}/.bash_local"
 fi
-CDISK=/cygdrive/c; export CDISK
 
 alias u="cd .."
 alias cdc="cd $CDISK"
