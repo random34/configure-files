@@ -197,13 +197,11 @@
 # 
 # alias cd=cd_func
 ##############################
+if [ -f "${HOME}/.bash_local" ] ; then
+  source "${HOME}/.bash_local"
+fi
 CDISK=/cygdrive/c; export CDISK
-MYDOC=$CDISK/Users/Tiger; export MYDOC
-DROPBOX=$MYDOC/Dropbox; export DROPBOX
-DOWNLOADS=$MYDOC/Downloads; export DOWNLOADS
-CONFIGURE=$CDISK/Users/Tiger/Documents/GitHub/configure-files; export CONFIGURE
-WINDOWS_HOME=$CDISK/Users/Tiger/; export WINDOWS_HOME
+
 alias u="cd .."
 alias cdc="cd $CDISK"
 alias cddb="cd \"$DROPBOX\""
-alias cddd="cd \"$DOWNLOADS\""
