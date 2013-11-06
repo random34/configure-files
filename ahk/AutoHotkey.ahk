@@ -38,6 +38,8 @@
 SetTitleMatchMode, 2
 #ifWinActive ahk_class Chrome_WidgetWin_1
 #Space::Gosub HexieshePageDown
+F1::Send, ~
+F4::Send, ^{F4}
 #ifWinActive
     
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
