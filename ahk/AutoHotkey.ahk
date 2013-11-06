@@ -152,7 +152,7 @@ HexieshePageDown:
             hexiePage:=hexiePage + 1
             Send, ^v
             Send, {BS}{BS}
-            Send, %hexiePage%{Enter}
+            Send, %hexiePage%/{Enter}
         }
         else
         {
