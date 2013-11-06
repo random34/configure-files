@@ -33,6 +33,12 @@
 ::;sysout::System.out.println();{Left}{Left}
 ::;main::public static void main(String [] args){{}{}}{Left}
 ^!g::Gosub, InsertGetterAndSetter
+
+;application specific rules
+SetTitleMatchMode, 2
+#ifWinActive ahk_class Chrome_WidgetWin_1
+#Space::Gosub HexieshePageDown
+#ifWinActive
     
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; sub programs
@@ -130,3 +136,29 @@ InsertGetterAndSetter:
     send private %Type% m%UpperVarName%;{Enter}{Enter}public %Type% get%UpperVarName%(){{}{Enter}return m%UpperVarName%;{Enter}{}}{Enter}{Enter}public void set%UpperVarName%(%Type% %VarName%){{}{Enter}m%UpperVarName% = %VarName%{Enter}{}}
 return
 
+HexieshePageDown:
+    tempC := ClipboardAll
+    Send, {F6}^c
+    Sleep 50
+    if InStr(Clipboard, "hexieshe")
+    {
+        ;get the last three charactors of the url.
+        StringRight, hexieLastThree, Clipboard, 3
+        StringGetPos, hexiePos, hexieLastThree,`/
+        ;if the url starts with /, like /2/, it means it is a second page
+        if (hexiePos=0) 
+        {
+            StringMid, hexiePage, hexieLastThree,2,1
+            hexiePage:=hexiePage + 1
+            Send, ^v
+            Send, {BS}{BS}
+            Send, %hexiePage%{Enter}
+        }
+        else
+        {
+            Send, ^v
+            Send, 2/{Enter}
+        }
+    }
+    ClipBoard := tempC
+return
