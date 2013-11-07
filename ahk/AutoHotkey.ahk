@@ -24,8 +24,15 @@
 ^!f::Gosub, FetchConfigure
 ^!u::Gosub, UploadConfigure
 
-; copy current content and google it.
-^#c::Gosub, CopyAndSearch
+; copy current content and search
+^#c::
+searchURL := "http://www.google.com/search?q="
+Gosub, CopyAndSearch
+return
+^#t::
+searchURL := "http://dict.youdao.com/search?q=" 
+Gosub, CopyAndSearch
+return
 
 ; text expansions
 ::;pd::{U+00A3}
@@ -124,12 +131,6 @@ UploadConfigure:
     MsgBox, Configuration files uploaded to dropbox. 
     return
     
-CopyAndSearch:
-    Send, ^c
-    Sleep 50
-    Run, http://www.google.com/search?q=%clipboard%
-Return
-
 InsertGetterAndSetter:
     InputBox, Type, input Type, private _Type_ _name_: firstly input type
     InputBox, VarName, input variable name, private _Type_ _name_: input VarName
@@ -164,3 +165,13 @@ HexieshePageDown:
     }
     ClipBoard := tempC
 return
+
+CopyAndSearch:
+    copyTemp := ClipboardAll
+    Send, ^c
+    Sleep 50
+    Run, %SearchURL%%Clipboard%
+    Clipboard := copyTemp
+return
+
+
