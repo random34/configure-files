@@ -34,6 +34,15 @@ searchURL := "http://dict.youdao.com/search?q="
 Gosub, CopyAndSearch
 return
 
+; Paste plain text
+^+v::
+    ClipSaved := ClipboardAll 
+    Clipboard = %Clipboard% 
+    SendInput, ^v 
+    Sleep, 250 
+    Clipboard := ClipSaved 
+return
+
 ; text expansions
 ::;pd::{U+00A3}
 ::;euro::{U+20AC}
