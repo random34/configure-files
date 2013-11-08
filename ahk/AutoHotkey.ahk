@@ -43,6 +43,23 @@ return
     Clipboard := ClipSaved 
 return
 
+;—————————————
+;Toggle audio to use headphone jack or HDMI 
+;—————————————— 
+ScrollLock:: 
+    toggle:=!toggle ;toggles up and down states. 
+    Run, mmsys.cpl 
+    WinWait,Sound ; Change "Sound" to the name of the window in your local language 
+    if toggle 
+        ControlSend,SysListView321,{Down 1} ; This number selects the matching audio device in the list, change it accordingly 
+    Else 
+        ControlSend,SysListView321,{Down 2} ; This number selects the matching audio device in the list, change it accordingly
+    sleep 100
+    ControlClick,&Set Default,Sound,,,,na ; Change "&Set Default" to the name of the button in your local language 
+    sleep 100 
+    ControlClick,OK,Sound,,,,na 
+return
+
 ; text expansions
 ::;pd::{U+00A3}
 ::;euro::{U+20AC}
@@ -182,5 +199,4 @@ CopyAndSearch:
     Run, %SearchURL%%Clipboard%
     Clipboard := copyTemp
 return
-
 
