@@ -9,7 +9,6 @@
 #j::Run %ProgramFilesPath%\JabRef\JabRef.exe
 #x::Run %ProgramFilesPath%\XMind\xmind.exe
 #m::Run %ProgramFilesPath%\TTPlayer\TTPlayer.exe
-#F12::Send, {Volume_Mute}
 
 ; Shortcuts for the timer of pomodoro methods
 #s::Gosub, Pomodoro
@@ -24,7 +23,9 @@
 ^!f::Gosub, FetchConfigure
 ^!u::Gosub, UploadConfigure
 
-; copy current content and search
+;;;;;;;;;;;;;;;;;;
+; copy and paste
+;;;;;;;;;;;;;;;;;;
 ^#c::
 searchURL := "http://www.google.com/search?q="
 Gosub, CopyAndSearch
@@ -33,27 +34,26 @@ return
 searchURL := "http://dict.youdao.com/search?q=" 
 Gosub, CopyAndSearch
 return
+^+v::Gosub, PasteAsPlainText
 
-; Paste plain text
-^+v::
-    ClipSaved := ClipboardAll 
-    Clipboard = %Clipboard% 
-    SendInput, ^v 
-    Sleep, 250 
-    Clipboard := ClipSaved 
-return
-
+;;;;;;;;;;;;;;;;
+;Audio settings
+;;;;;;;;;;;;;;;;;;;
+#F12::Send, {Volume_Mute}
 ScrollLock::Gosub, ToogleSoundDevice
 
+;;;;;;;;;;;;;;;;;;;;;
 ; text expansions
+;;;;;;;;;;;;;;;;;;;;;
 ::;pd::{U+00A3}
 ::;euro::{U+20AC}
 ::;sysout::System.out.println();{Left}{Left}
 ::;main::public static void main(String [] args){{}{}}{Left}
 ^!g::Gosub, InsertGetterAndSetter
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;application specific rules
-SetTitleMatchMode, 2
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 #ifWinActive ahk_class Chrome_WidgetWin_1
 #Space::Gosub HexieshePageDown
 F1::Send, ~
@@ -197,4 +197,12 @@ ToogleSoundDevice:
     ControlClick,&Set Default,Sound,,,,na ; Change "&Set Default" to the name of the button in your local language 
     sleep 100 
     ControlClick,OK,Sound,,,,na 
+return
+
+PasteAsPlainText:
+    ClipSaved := ClipboardAll 
+    Clipboard = %Clipboard% 
+    SendInput, ^v 
+    Sleep, 250 
+    Clipboard := ClipSaved 
 return
