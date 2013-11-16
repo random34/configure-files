@@ -59,6 +59,11 @@ ScrollLock::Gosub, ToogleSoundDevice
 F1::Send, ~
 F4::Send, ^{F4}
 #ifWinActive
+
+;;;;;;;;;;;;;;;;;;;;;
+;Special keys
+;;;;;;;;;;;;;;;;;;;;;
+Browser_Back::Send, ^{Click}
     
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; sub programs
