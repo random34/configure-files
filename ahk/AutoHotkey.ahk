@@ -45,14 +45,22 @@ ScrollLock::Gosub, ToogleSoundDevice
 ;;;;;;;;;;;;;;;;;;;;;
 ; text expansions
 ;;;;;;;;;;;;;;;;;;;;;
+; Special charactors
 ::;pd::{U+00A3}
 ::;euro::{U+20AC}
 ::;Omega::{U+03A9}
 ::;Theta::{U+0398}
 ::;lambda::{U+03BB}
+::;cross::{U+00D7}
+::;dot::{U+00B7}
+
+; Code generations
 ::;sysout::System.out.println();{Left}{Left}
 ::;main::public static void main(String [] args){{}{}}{Left}
 ^!g::Gosub, InsertGetterAndSetter
+
+; frequent phrase
+::;ggta::thesis, algorithm
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;application specific rules
