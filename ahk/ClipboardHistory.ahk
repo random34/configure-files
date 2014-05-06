@@ -3,7 +3,10 @@
 
 SendMode Input  ; Forces Send and SendRaw to use SendInput buffering for speed.
 
-^!v::
+^!c::Gosub, ClearClipBucket
+^!v::Gosub, ShowClipboardHistory
+
+ShowClipboardHistory:
 ;Flush the old menu
 Menu, ClipboardHistory, Add
 Menu, ClipboardHistory, DeleteAll
@@ -25,6 +28,8 @@ Loop 10 {
 	Menu, ClipboardHistory, Add, % "&" . ThisMenuItemNumber . " " . ThisItemShortDisplay, PasteClipFromMenu
 }
 MenuShowPosY := A_CaretY + 16
+	Menu, ClipboardHistory, Add, clear all, ClearClipBucket
+
 Menu, ClipboardHistory, Show, %A_CaretX%, %MenuShowPosY%
 Return
 
@@ -44,3 +49,9 @@ If (A_EventInfo = 1) {
 }
 Return
 
+ClearClipBucket:
+Loop 10{
+    ;empty all ClipBucket
+    ClipBucket%A_Index% =
+}
+return
