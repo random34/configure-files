@@ -24,6 +24,8 @@ set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
+" use clipboard as the default unnamed register
+set clipboard=unnamed
 set nu!
 set wrap
   if !exists("syntax_on")
