@@ -1,5 +1,6 @@
 ; Include the location specific commands.
 #Include C:\local.ahk
+#Include .\ClipboardHistory.ahk
 
 ; ^ is ctrl, ! is alt, # is win
 ; Shortcuts for opening applications
