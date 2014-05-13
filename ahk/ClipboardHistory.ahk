@@ -37,6 +37,7 @@ PasteClipFromMenu:
 ThisSelectionBucketNum := CurBucket - A_ThisMenuItemPos + 1
 If (ThisSelectionBucketNum < 1)
 	ThisSelectionBucketNum := ThisSelectionBucketNum + 10
+Sleep, 100 
 SendRaw % ClipBucket%ThisSelectionBucketNum%
 Return
 

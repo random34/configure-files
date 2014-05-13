@@ -104,9 +104,10 @@ vnoremap  0 g0
 vnoremap  ^ g^
 vnoremap  $ g$
 
-"Ctrl+i = surround visual mode selections by '*', useful for markdown syntax.
-map <C-I> c*<C-R>"*<ESC>
-
+" quickly do markdown tweaks
+vmap <C-I>i c*<C-R>"*<ESC>
+vmap <C-I>b c**<C-R>"**<ESC>
+vmap <C-I>u c_<C-R>"_<ESC>
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
