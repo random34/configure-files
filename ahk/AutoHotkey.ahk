@@ -62,7 +62,26 @@ ScrollLock::Gosub, ToogleSoundDevice
 ^!g::Gosub, InsertGetterAndSetter
 #i::Gosub, TypeInputs
 
-; frequent phrase
+; useful short cuts
+
+;generate a random number between 0 and 2^32
+::;rn::
+    Random, rn
+    SendInput %rn%
+return
+
+;current date
+::;dt::
+    FormatTime, currentDateTime, , yyyy-MM-dd
+    SendInput %currentDateTime%
+return
+
+;a time stamp
+::;ts::
+    FormatTime, currentDateTime, , yyyy-MM-dd
+    Random, rn
+    SendInput %currentDateTime% %rn%
+return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;application specific rules
@@ -201,5 +220,7 @@ PasteAsPlainText:
     Clipboard := ClipSaved 
 return
 
-
+RandomNumber:
+    Send, 231131312321
+return
 
