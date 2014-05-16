@@ -10,6 +10,7 @@
 #j::Run %ProgramFilesPath%\JabRef\JabRef.exe
 #x::Run %ProgramFilesPath%\XMind\xmind.exe
 #m::Run %ProgramFilesPath%\TTPlayer\TTPlayer.exe
+#y::Gosub LookupYoudao
 
 ; Shortcuts for the timer of pomodoro methods
 #s::Gosub, Pomodoro
@@ -220,7 +221,8 @@ PasteAsPlainText:
     Clipboard := ClipSaved 
 return
 
-RandomNumber:
-    Send, 231131312321
+LookupYoudao:
+    InputBox, YoudaoWord, Look up a word, Please input the word
+    searchURL := "http://dict.youdao.com/search?q=" 
+    Run, %SearchURL%%YoudaoWord%
 return
-
