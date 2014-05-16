@@ -107,6 +107,14 @@ vnoremap  0 g0
 vnoremap  ^ g^
 vnoremap  $ g$
 
+" map control-backspace to delete the previous word
+imap <C-BS> <C-W>
+
+" CTRL-Tab is next tab
+noremap <C-Tab> :<C-U>tabnext<CR>
+inoremap <C-Tab> <C-\><C-N>:tabnext<CR>
+cnoremap <C-Tab> <C-C>:tabnext<CR>
+
 " quickly do markdown tweaks
 vmap <C-I>i c*<C-R>"*<ESC>
 vmap <C-I>b c**<C-R>"**<ESC>
@@ -119,6 +127,8 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
+" quit
+nmap <leader>q :q!<CR>
 
 "Compile Java
 autocmd Filetype java set makeprg=javac\ %
