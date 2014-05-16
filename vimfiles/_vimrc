@@ -82,10 +82,13 @@ set smartcase
 " No annoying sound on errors
 set noerrorbells
 set novisualbell
+set t_vb=
+set tm=500
 
 " Turn off *.*~ auto backup files
 set nobackup
 set nowritebackup
+set noswapfile
 
 nnoremap k gk
 nnoremap j gj

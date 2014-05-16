@@ -63,7 +63,6 @@ ScrollLock::Gosub, ToogleSoundDevice
 #i::Gosub, TypeInputs
 
 ; frequent phrase
-::;ggta::thesis, algorithm
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;application specific rules
