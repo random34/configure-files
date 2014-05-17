@@ -2,7 +2,7 @@
 #Include C:\local.ahk
 #Include .\ClipboardHistory.ahk
 
-; ^ is ctrl, ! is alt, # is win
+; ^ is ctrl, ! is alt, # is win, + is shift
 ; Shortcuts for opening applications
 #v::Run %ProgramFilesPath%\Vim\vim73\gvim.exe
 #t::Run C:\WINDOWS\system32\taskmgr.exe
@@ -10,6 +10,8 @@
 #j::Run %ProgramFilesPath%\JabRef\JabRef.exe
 #x::Run %ProgramFilesPath%\XMind\xmind.exe
 #y::Gosub LookupYoudao
+#m::Gosub, MountTrueCriptDisk
+#u::Gosub, UnMountTrueCriptDisk
 
 ; Shortcuts for the timer of pomodoro methods
 #s::Gosub, Pomodoro
@@ -224,4 +226,16 @@ LookupYoudao:
     InputBox, YoudaoWord, Look up a word, Please input the word
     searchURL := "http://dict.youdao.com/search?q=" 
     Run, %SearchURL%%YoudaoWord%
+return
+
+MountTrueCriptDisk:
+    Run %ProgramFilesPath%\TrueCrypt\TrueCrypt.exe
+    WinWait, TrueCrypt
+    SendInput, {Alt}i{Up}{Enter}
+return
+
+UnMountTrueCriptDisk:
+    Run %ProgramFilesPath%\TrueCrypt\TrueCrypt.exe
+    WinWait, TrueCrypt
+    SendInput, !s{Esc}
 return
