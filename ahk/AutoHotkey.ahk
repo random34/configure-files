@@ -9,7 +9,6 @@
 #c::Run C:\cygwin\bin\mintty.exe -i /Cygwin-Terminal.ico -
 #j::Run %ProgramFilesPath%\JabRef\JabRef.exe
 #x::Run %ProgramFilesPath%\XMind\xmind.exe
-#m::Run %ProgramFilesPath%\TTPlayer\TTPlayer.exe
 #y::Gosub LookupYoudao
 
 ; Shortcuts for the timer of pomodoro methods
