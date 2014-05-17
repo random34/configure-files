@@ -4,11 +4,8 @@
 
 ; ^ is ctrl, ! is alt, # is win, + is shift
 ; Shortcuts for opening applications
-#v::Run %ProgramFilesPath%\Vim\vim73\gvim.exe
+#v::Run %VimPath%
 #t::Run C:\WINDOWS\system32\taskmgr.exe
-#c::Run C:\cygwin\bin\mintty.exe -i /Cygwin-Terminal.ico -
-#j::Run %ProgramFilesPath%\JabRef\JabRef.exe
-#x::Run %ProgramFilesPath%\XMind\xmind.exe
 #y::Gosub LookupYoudao
 #m::Gosub, MountTrueCriptDisk
 #u::Gosub, UnMountTrueCriptDisk
