@@ -228,11 +228,13 @@ return
 MountTrueCriptDisk:
     Run %ProgramFilesPath%\TrueCrypt\TrueCrypt.exe
     WinWait, TrueCrypt
+    Sleep, 50
     SendInput, {Alt}i{Up}{Enter}
 return
 
 UnMountTrueCriptDisk:
     Run %ProgramFilesPath%\TrueCrypt\TrueCrypt.exe
     WinWait, TrueCrypt
+    Sleep, 50
     SendInput, !s{Esc}
 return
