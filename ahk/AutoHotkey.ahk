@@ -24,6 +24,9 @@
 ^!f::Gosub, FetchConfigure
 ^!u::Gosub, UploadConfigure
 
+; Roll a dice, generating a random number
+#/::Gosub, Dice
+
 ;;;;;;;;;;;;;;;;;;
 ; copy and paste
 ;;;;;;;;;;;;;;;;;;
@@ -238,3 +241,10 @@ UnMountTrueCriptDisk:
     Sleep, 50
     SendInput, !s{Esc}
 return
+
+Dice:
+    InputBox, MaxDiceVar, Generating a random number, Please input the max number. It will generating a number between 1 to max number. 
+    Random DiceVar, 1, %MaxDiceVar%
+    MsgBox The generated number is %DiceVar%
+return 
+    
