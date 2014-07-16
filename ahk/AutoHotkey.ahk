@@ -1,5 +1,5 @@
 ; Include the location specific commands.
-#Include C:\local.ahk
+#Include ..\..\..\..\local.ahk
 #Include .\ClipboardHistory.ahk
 
 ; ^ is ctrl, ! is alt, # is win, + is shift
@@ -43,20 +43,34 @@ return
 ;;;;;;;;;;;;;;;;
 ;Audio settings
 ;;;;;;;;;;;;;;;;;;;
-#F12::Send, {Volume_Mute}
 ScrollLock::Gosub, ToogleSoundDevice
+#F1::SoundSet, 10
+#F2::SoundSet, 20
+#F3::SoundSet, 50 
+#F4::SoundSet, 65
+#F5::SoundSet, 100
 
 ;;;;;;;;;;;;;;;;;;;;;
 ; text expansions
 ;;;;;;;;;;;;;;;;;;;;;
 ; Special charactors
+;￡
 ::;pd::{U+00A3}
 ::;euro::{U+20AC}
 ::;Omega::{U+03A9}
 ::;Theta::{U+0398}
 ::;lambda::{U+03BB}
-::;cross::{U+00D7}
 ::;dot::{U+00B7}
+::;>::{U+2192}
+::;<::{U+2190}
+
+;todo not work when sending to vim
+::;chk::{U+2611}
+::;nchk::{U+2610}
+::;tick::{U+2713}
+::;forall::{U+2200}
+::;exist::{U+2203}
+::;cross::{U+00D7}
 
 ; Code generations
 ::;sysout::System.out.println();{Left}{Left}
@@ -65,6 +79,8 @@ ScrollLock::Gosub, ToogleSoundDevice
 #i::Gosub, TypeInputs
 
 ; useful short cuts
+::;pms::Please make sure the sentence is correct.
+::;umc::Uses modelling concepts.
 
 ;generate a random number between 0 and 2^32
 ::;rn::
