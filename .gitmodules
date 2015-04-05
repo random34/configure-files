@@ -25,3 +25,9 @@
 [submodule "nerdcommenter"]
 	path = vimfiles/vimfiles/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "VOoM"]
+    path = vimfiles/vimfiles/bundle/VOoM
+	url = https://github.com/vim-scripts/VOoM.git
+[submodule "vim-ragtag"]
+    path = vimfiles/vimfiles/bundle/vim-ragtag
+	url = https://github.com/tpope/vim-ragtag.git
